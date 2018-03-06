@@ -36,7 +36,7 @@ public class StockQuoteClient {
 		  Map<String, List<String>> headers = new HashMap<String, List<String>>();
 		  headers.put("username", Collections.singletonList("concretepage"));
 		  headers.put("password", Collections.singletonList("cp1234"));
-		
+		  bp.getRequestContext().put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, "http://www.webservicex.com/stockquote.asmx?WSDL");
 		  map.put(MessageContext.HTTP_REQUEST_HEADERS, headers);
 		  System.out.println(service2.getQuote("Everyone!"));
 	}

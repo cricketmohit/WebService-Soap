@@ -14,7 +14,6 @@ public class OrderServiceImpl implements OrderService{
 
 	@Resource
     WebServiceContext ctx;
-    @Override
     public String[] getOrders() {
     	MessageContext msgctx = ctx.getMessageContext();
   	  Map headers = (Map) msgctx.get(MessageContext.HTTP_REQUEST_HEADERS);
@@ -23,10 +22,12 @@ public class OrderServiceImpl implements OrderService{
         return new String[]{"SSD", "Graphic Card", "GPU"};
     }
 
-    @Override
+    
     public boolean addOrder(String order) {
         System.out.println("Saving new order: " + order);
         return true;
     }
+
+
 
 }
