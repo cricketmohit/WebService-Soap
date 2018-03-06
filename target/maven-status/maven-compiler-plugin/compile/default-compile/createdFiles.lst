@@ -1,0 +1,6 @@
+net/webservicex/package-info.class
+net/webservicex/ObjectFactory.class
+net/webservicex/StockQuoteSoap.class
+net/webservicex/StockQuote.class
+net/webservicex/GetQuoteResponse.class
+net/webservicex/GetQuote.class
