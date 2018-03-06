@@ -1,7 +1,13 @@
 import java.net.URL;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import javax.xml.namespace.QName;
+import javax.xml.ws.BindingProvider;
 import javax.xml.ws.Service;
+import javax.xml.ws.handler.MessageContext;
 
 import net.webservicex.StockQuote;
 import net.webservicex.StockQuoteSoap;
@@ -23,6 +29,16 @@ public class StockQuoteClient {
 		StockQuoteSoap service2 = serviceTest.getPort(StockQuoteSoap.class);
 
 		System.out.println(service2.getQuote("mkyong"));
+		
+//		Third way with binding provider
+		 BindingProvider bp = (BindingProvider) service2;
+		 Map<String, Object> map = bp.getRequestContext();
+		  Map<String, List<String>> headers = new HashMap<String, List<String>>();
+		  headers.put("username", Collections.singletonList("concretepage"));
+		  headers.put("password", Collections.singletonList("cp1234"));
+		
+		  map.put(MessageContext.HTTP_REQUEST_HEADERS, headers);
+		  System.out.println(service2.getQuote("Everyone!"));
 	}
 
 }
